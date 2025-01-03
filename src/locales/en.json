@@ -1,0 +1,24 @@
+```json
+{
+  "common": {
+    "title": "Store Information Site",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "noData": "No data available"
+  },
+  "navigation": {
+    "home": "Home",
+    "stores": "Stores",
+    "about": "About"
+  },
+  "storeList": {
+    "title": "Store List",
+    "searchPlaceholder": "Search stores...",
+    "noStoresFound": "No stores found"
+  },
+  "storeDetail": {
+    "address": "Address",
+    "phone": "Phone",
+    "hours": "Business Hours",
+    "services": "Available Services",
+    "

@@ -1,0 +1,98 @@
+src:
+  structure.yaml:
+    content: "店舗情報サイトのプロジェクト構造定義"
+    dependency: []
+  
+  config:
+    .env:
+      content: |-
+        アプリケーションの基本設定と環境変数を管理
+        - アプリケーション名、環境、デバッグモード設定
+        - データベース接続情報
+        - APIエンドポイント設定
+      dependency: []
+    .env.development:
+      content: |-
+        開発環境専用の環境変数設定
+        - データベース接続設定（ローカル）
+        - APIキーとエンドポイント
+        - デバッグ設定
+        - 外部サービス連携情報
+      dependency: []
+    .env.production:
+      content: |-
+        本番環境専用の環境変数設定
+        - 本番データベース接続情報
+        - セキュリティ設定
+        - 外部サービス本番キー
+        - ロギング設定
+        - デプロイメント環境変数
+      dependency: []
+  
+  database:
+    migrations:
+      create_stores_table.sql:
+        content: "店舗情報テーブルの構造を定義するSQLマイグレーションスクリプト"
+        dependency: []
+    seeds:
+      initial_store_data.sql:
+        content: "初期店舗データ、カテゴリ、メニューアイテムを投入するSQLスクリプト"
+        dependency: 
+          - src/database/migrations/create_stores_table.sql
+  
+  docs:
+    requirements.md:
+      content: |-
+        店舗情報サイトの要件定義書
+        - プロジェクト概要
+        - 機能要件
+        - 技術スタック
+        - データベース設計
+        - 環境設定
+        - セキュリティ要件
+        - 性能要件
+        - 多言語対応
+        - テスト戦略
+      dependency: []
+  
+  locales:
+    ja.json:
+      content: "日本語の多言語リソース（UI文言、エラーメッセージなど）"
+      dependency: []
+    en.json:
+      content: "英語の多言語リソース（UI文言、エラーメッセージなど）"
+      dependency: []
+  
+  public:
+    images:
+      logo.png:
+        content: "サイトのロゴ画像"
+        dependency: []
+  
+  src:
+    components:
+      store_list.tsx:
+        content: |-
+          店舗一覧を表示するReactコンポーネント
+          - 店舗情報の一覧表示
+          - 検索機能
+          - 多言語対応
+          - ローディング/エラー状態の管理
+        dependency:
+          - src/hooks/use_store_list.ts
+          - src/services/store_service.ts
+      store_detail.tsx:
+        content: |-
+          店舗詳細情報を表示するReactコンポーネント
+          - 個別店舗の詳細情報レンダリング
+          - 多言語対応
+          - ローディング/エラー状態の管理
+        dependency:
+          - src/hooks/use_store_detail.ts
+          - src/services/store_service.ts
+    
+    hooks:
+      use_store_list.ts:
+        content: |-
+          店舗一覧データ取得のカスタムフック
+          - 店
